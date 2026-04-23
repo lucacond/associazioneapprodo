@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- DESIGN SYSTEM NEO-BRUTALISM --- */
+        /* --- DESIGN SYSTEM NEO-BRUTALISM PROFESSIONALE --- */
         :root {
             --yellow: #FFD500; --blue: #1C4ED8; --green: #008060; --purple: #8B5CF6; --mint: #69F0AE; 
             --black: #121212; --white: #FFFFFF; --paper: #fdfaf3;
@@ -25,15 +25,14 @@
         h1, h2, h3, h4, .font-title { font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; font-weight: 700; letter-spacing: -2px; }
 
         /* --- LOGO STYLING --- */
-        .logo-nav { height: 100px; width: auto; object-fit: contain; }
-        .logo-main-header { width: 90%; max-width: 600px; height: auto; object-fit: contain; margin: 0 auto 40px auto; display: block; filter: drop-shadow(10px 10px 0px var(--black)); }
+        .logo-nav { height: 90px; width: auto; object-fit: contain; }
         .logo-footer-white { width: 85%; max-width: 500px; height: auto; object-fit: contain; margin: 0 auto 60px auto; display: block; filter: brightness(0) invert(1); }
 
         /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             background: rgba(255,255,255,0.98); backdrop-filter: blur(15px);
-            border-bottom: var(--border); height: 130px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%;
+            border-bottom: var(--border); height: 120px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%;
         }
         .nav-links { display: flex; gap: 25px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--black); font-weight: 700; font-family: 'Space Grotesk'; font-size: 1.1rem; }
@@ -52,11 +51,12 @@
         .btn-purple { background: var(--purple); color: white; box-shadow: 5px 5px 0 var(--black); }
 
         /* --- SECTIONS --- */
-        section { padding: 120px 8%; border-bottom: var(--border); min-height: 85vh; display: flex; flex-direction: column; justify-content: center; }
+        section { padding: 100px 8%; border-bottom: var(--border); min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
         #intro { text-align: center; background: var(--bg-cream); padding-top: 160px; }
         
+        /* --- VIDEO GIGANTE --- */
         .video-container { 
-            width: 100%; max-width: 1150px; margin: 60px auto; border: var(--border); 
+            width: 100%; max-width: 1150px; margin: 40px auto; border: var(--border); 
             box-shadow: 18px 18px 0px var(--black); border-radius: 40px; overflow: hidden; 
             aspect-ratio: 16/9; position: relative; background: #000;
         }
@@ -66,7 +66,7 @@
         .events-split-container { display: flex; gap: 50px; margin-top: 50px; }
         .events-col { flex: 1; }
         .events-col-left { border-right: 5px dashed var(--black); padding-right: 40px; }
-        .scroll-past-events { max-height: 1100px; overflow-y: auto; padding-right: 20px; }
+        .scroll-past-events { max-height: 1000px; overflow-y: auto; padding-right: 20px; }
         .event-card { background: white; border: var(--border); box-shadow: 8px 8px 0 rgba(0,0,0,0.1); border-radius: 20px; margin-bottom: 40px; overflow: hidden; position: relative; }
         .event-img { width: 100%; height: 280px; object-fit: cover; border-bottom: var(--border); }
         .badge-new { position: absolute; top: 20px; right: 20px; background: var(--mint); color: black; padding: 10px 25px; font-weight: 800; border: 3px solid black; transform: rotate(10deg); z-index: 5; box-shadow: 3px 3px 0 black; font-size: 1.1rem; }
@@ -76,7 +76,7 @@
         .diary-header { text-align: center; margin-bottom: 60px; border-bottom: 4px solid #000; padding-bottom: 30px; }
         .diary-date { font-family: 'Courier Prime', monospace; font-size: 1.4rem; color: var(--blue); font-weight: 700; }
         .diary-img-full { width: 100%; height: auto; max-height: 850px; object-fit: cover; border: 15px solid white; box-shadow: 0 30px 60px rgba(0,0,0,0.3); margin: 60px 0; border-radius: 4px; }
-        .diary-content { max-width: 950px; margin: 0 auto; font-size: 1.6rem; line-height: 2.1; }
+        .diary-content { max-width: 900px; margin: 0 auto; font-size: 1.6rem; line-height: 2.1; }
         .diary-quote { font-family: 'Space Grotesk'; font-size: 3.5rem; text-align: center; margin: 100px 0; color: var(--blue); border-top: 4px solid #000; border-bottom: 4px solid #000; padding: 80px 0; line-height: 1; }
         .diary-row { display: flex; gap: 60px; align-items: center; margin: 110px 0; }
         .diary-row img { width: 48%; height: 500px; object-fit: cover; border: 10px solid white; box-shadow: 20px 20px 0 var(--blue); border-radius: 15px; }
@@ -85,9 +85,9 @@
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 2000; display: none; overflow-y: auto; -webkit-overflow-scrolling: touch; }
         .modal-overlay.active { display: block; }
         .modal-box { width: 95%; max-width: 1300px; margin: 40px auto; background: white; border: var(--border); border-radius: 45px; overflow: hidden; position: relative; box-shadow: 30px 30px 0px var(--black); animation: modalOpen 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
-        .close-modal-btn { position: sticky; top: 25px; right: 25px; float: right; z-index: 100; background: var(--black); color: white; width: 65px; height: 65px; border-radius: 50%; border: none; font-size: 2.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .close-modal-btn { position: sticky; top: 25px; right: 25px; float: right; z-index: 100; background: var(--black); color: white; width: 65px; height: 65px; border-radius: 50%; border: none; font-size: 2.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
 
-        /* --- FOOTER & INSTAGRAM GRID --- */
+        /* --- INSTAGRAM FEED --- */
         #contatti { background: var(--black); color: white; padding-top: 80px; padding-bottom: 120px; }
         .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 50px auto; }
         .insta-post { aspect-ratio: 1/1; border: 2px solid #333; overflow: hidden; border-radius: 15px; }
@@ -96,17 +96,16 @@
         @keyframes modalOpen { from { transform: translateY(60px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
 
         @media (max-width: 900px) {
-            nav { height: 110px; }
-            .logo-nav { height: 80px; }
-            .logo-main-header { max-width: 85%; }
+            nav { height: 100px; }
+            .logo-nav { height: 70px; }
             .nav-links { display: none; }
-            section { padding: 100px 6%; }
+            section { padding: 80px 6%; }
             .events-split-container { flex-direction: column; }
             .events-col-left { border-right: none; border-bottom: 5px dashed var(--black); padding-bottom: 50px; }
             .diary-row { flex-direction: column; }
             .diary-row img { width: 100%; }
             .insta-grid { grid-template-columns: repeat(2, 1fr); }
-            h1 { font-size: 2.8rem !important; }
+            h1 { font-size: 2.6rem !important; }
         }
     </style>
 </head>
@@ -124,8 +123,6 @@
     </nav>
 
     <section id="intro">
-        <img src="approdo_logo.png" class="logo-main-header" alt="Logo L'Approdo">
-
         <h1 style="font-size: clamp(3rem, 10vw, 6.5rem); line-height: 0.9;">Le Persone<br><span class="highlight">Al Posto delle Sostanze</span></h1>
         <p style="font-size: 1.8rem; margin: 35px 0; font-weight: 600; color: #444;">"Nascere è un inizio, <span style="border-bottom: 5px solid var(--blue);">rinascere è una scelta</span>."</p>
         <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 50px;">
@@ -134,7 +131,7 @@
         </div>
         
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/3VQFxCeLBPA" allowfullscreen title="Video"></iframe>
+            <iframe src="https://www.youtube.com/embed/3VQFxCeLBPA" allowfullscreen title="Video L'Approdo"></iframe>
         </div>
     </section>
 
@@ -150,15 +147,19 @@
                     </div>
                     <div class="event-card">
                         <img src="staffetta_approdo.jpg" class="event-img" alt="Staffetta">
-                        <div style="padding: 30px;"><h4>Milano Marathon</h4><p>Correre insieme verso il traguardo comune.</p></div>
+                        <div style="padding: 30px;"><h4>Milano Marathon</h4><p>La nostra staffetta solidale.</p></div>
                     </div>
                     <div class="event-card">
                         <img src="balilla_passato.jpg" class="event-img" alt="Balilla">
-                        <div style="padding: 30px;"><h4>Calcio-balilla umano</h4><p>Sfide giganti e risate nel gioco di squadra.</p></div>
+                        <div style="padding: 30px;"><h4>Calcio-balilla umano</h4><p>Sfide giganti e risate.</p></div>
                     </div>
                     <div class="event-card">
                         <img src="premiazioni_passato.jpg" class="event-img" alt="Premiazioni">
-                        <div style="padding: 30px;"><h4>Traguardi Astinenze</h4><p>I successi passati dei nostri ragazzi.</p></div>
+                        <div style="padding: 30px;"><h4>Traguardi Astinenze</h4><p>I successi dei nostri ragazzi.</p></div>
+                    </div>
+                    <div class="event-card">
+                        <img src="marcia_passato.jpg" class="event-img" alt="Marcia">
+                        <div style="padding: 30px;"><h4>La marcia dell’Approdo</h4><p>Un cammino condiviso.</p></div>
                     </div>
                 </div>
             </div>
@@ -171,7 +172,7 @@
                     <div style="padding: 40px;">
                         <h3 style="color:var(--purple); font-size: 2.8rem; margin-bottom: 15px; line-height: 0.95;">Premiazioni astinenze: tornare umani</h3>
                         <p style="font-size: 1.5rem; font-weight: 500; margin-bottom: 30px;">Celebriamo chi ha scelto di riabbracciare la propria umanità.</p>
-                        <button class="btn-purple" style="width:100%;" onclick="openModal('modal-astinenze')">Vedi i Dettagli</button>
+                        <button class="btn-purple" style="width:100%;" onclick="openModal('modal-astinenze')">Dettagli Evento</button>
                     </div>
                 </div>
             </div>
@@ -187,7 +188,6 @@
                     <ul style="list-style: none; font-size: 1.6rem; margin-top: 45px; line-height: 2.5;">
                         <li><i class="fas fa-check-circle" style="color:var(--blue); margin-right: 20px;"></i> Durata: 90 Minuti</li>
                         <li><i class="fas fa-check-circle" style="color:var(--blue); margin-right: 20px;"></i> Frequenza: Settimanale</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--blue); margin-right: 20px;"></i> Astinenza: Giro iniziale</li>
                         <li><i class="fas fa-hand-paper" style="color:var(--blue); margin-right: 20px;"></i> Parola: Alzata di mano</li>
                     </ul>
                 </div>
@@ -211,23 +211,20 @@
                         <button onclick="openModal('modal-oslo')" class="btn-black" style="border-color:white;">Diario Oslo 2025</button>
                     </div>
                 </div>
-                <div style="flex: 1.2;"><img src="azzurri_sempre.jpg" style="width:100%; border:10px solid #fff; border-radius:30px; box-shadow: 20px 20px 0 #000;" alt="Nazionale"></div>
+                <div style="flex: 1.2;"><img src="azzurri_sempre.jpg" style="width:100%; border:10px solid #fff; border-radius:30px; box-shadow: 20px 20px 0 #000;" alt="Azzurri"></div>
             </div>
         </div>
     </section>
 
-    <section id="statuto-section" style="text-align: center; background: var(--bg-green-fade);">
+    <section id="statuto-section" style="text-align: center;">
         <h2 style="font-size: 3.5rem; margin-bottom: 40px;">TRASPARENZA</h2>
-        <p style="margin-bottom: 40px; font-size: 1.3rem;">Crediamo nella chiarezza come base della fiducia.</p>
         <button onclick="openModal('modal-statuto')" class="btn-black" style="font-size: 1.3rem;">Visualizza Statuto e Organigramma Completo</button>
     </section>
 
     <section id="contatti">
         <img src="approdo_logo.png" class="logo-footer-white" alt="Logo Bianco">
-
         <div style="text-align: center; margin-bottom: 90px;">
             <h2 style="font-size: 5.5rem; color: white; line-height: 0.85;">IL NOSTRO FEED</h2>
-            <p style="font-size: 1.8rem; color: #888; margin-top: 25px;">Resta aggiornato sui nostri canali</p>
         </div>
         <div class="insta-grid">
             <div class="insta-post"><img src="azzurri_sempre.jpg" alt="1"></div>
@@ -252,22 +249,17 @@
             <button class="close-modal-btn" onclick="closeModal('modal-seoul')">&times;</button>
             <div class="diary-page">
                 <div class="diary-header">
-                    <span class="diary-date">Seoul, Corea del Sud - Settembre 2024</span>
+                    <span class="diary-date">Seoul 2024</span>
                     <h1 style="font-size: 4rem; line-height: 0.9;">L'Incubo e la Rinascita</h1>
                 </div>
                 <div class="diary-content">
                     <p>Nel 2024 ho partecipato alla <strong>Homeless World Cup</strong> a Seoul. Per me e per i miei compagni, è stata un'esperienza indimenticabile. È stato un viaggio lungo, non solo in chilometri, ma dentro noi stessi.</p>
                     <img src="azzurri_sempre.jpg" class="diary-img-full" alt="Team Seoul">
-                    <p>Abbiamo iniziato male: <strong>abbiamo perso le prime 5 partite consecutive</strong>. Eravamo demoralizzati, a terra. Sembrava che tutto quello per cui ci eravamo allenati stesse svanendo. Ci siamo guardati negli occhi e abbiamo deciso che non potevamo finire così.</p>
+                    <p>Abbiamo iniziato male: <strong>abbiamo perso le prime 5 partite consecutive</strong>. Eravamo demoralizzati, a terra. Tutto sembrava svanire. Ma ci siamo guardati negli occhi e abbiamo deciso che non potevamo finire così.</p>
                     <div class="diary-quote">"La vittoria non era nel punteggio, ma nell'esserci rialzati."</div>
                     <div class="diary-row">
-                        <div class="text"><p>Alla sesta partita contro la <strong>Svezia</strong> abbiamo vinto ai rigori. È stata un'esplosione di gioia indescrivibile. Seoul è stata la nostra vera rinascita collettiva.</p></div>
+                        <div class="text"><p>Alla sesta partita contro la <strong>Svezia</strong> abbiamo vinto ai rigori. È stata un'esplosione di gioia indescrivibile. Lì abbiamo capito che Seoul era la nostra vera rinascita collettiva.</p></div>
                         <img src="seoul_azione.jpg" alt="Azione Seoul">
-                    </div>
-                    <p>Portiamo a casa la consapevolezza che il gruppo è la nostra forza più grande. Portiamo nel cuore quegli spalti coreani come prova che, se restiamo uniti, nulla è impossibile.</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 60px;">
-                        <img src="seoul_luca_gioco.jpg" style="width:100%; border:var(--border);" alt="Luca">
-                        <img src="seoul_mano.jpg" style="width:100%; border:var(--border);" alt="Mano">
                     </div>
                 </div>
             </div>
@@ -279,17 +271,16 @@
             <button class="close-modal-btn" onclick="closeModal('modal-oslo')">&times;</button>
             <div class="diary-page">
                 <div class="diary-header">
-                    <span class="diary-date">Oslo, Norvegia - 2025</span>
+                    <span class="diary-date">Oslo 2025</span>
                     <h1 style="font-size: 4rem; line-height: 0.9;">Voci da Oslo 2025</h1>
                 </div>
                 <div class="diary-content">
-                    <img src="teamoslo.jpg" class="diary-img-full" alt="Team Oslo" onerror="this.src='https://via.placeholder.com/1200x700/1C4ED8/FFF?text=TEAM+OSLO'">
-                    
+                    <img src="teamoslo.jpg" class="diary-img-full" alt="Team Oslo">
                     <div class="diary-row">
                         <img src="achille_oslo.jpg" alt="Achille">
                         <div class="text">
                             <h3 class="font-title" style="color:var(--blue); font-size: 2.5rem;">ACHILLE: IL CAPITANO</h3>
-                            <p>Con la fascia da capitano della Nazionale Solidale, Achille ha guidato la squadra vivendo un'esperienza di crescita e riscatto. Guidare i compagni significa prendersi cura delle fragilità di ognuno.</p>
+                            <p>Guidare la squadra a Oslo ha significato prendersi cura della fragilità dei compagni, trasformando la paura nella forza di riprovarci.</p>
                         </div>
                     </div>
                     <div class="diary-quote">"Un viaggio TRASFORMATIVO."</div>
@@ -309,12 +300,12 @@
         <div class="modal-box">
             <button class="close-modal-btn" onclick="closeModal('modal-gruppo')">&times;</button>
             <div style="padding: 80px;">
-                <h2 class="font-title" style="font-size: 3.5rem; border-bottom: 6px solid #000; padding-bottom: 25px; margin-bottom: 60px;">VOCI REALI</h2>
+                <h2 class="font-title" style="font-size: 3.5rem; border-bottom: 6px solid #000; padding-bottom: 20px; margin-bottom: 60px;">VOCI REALI</h2>
                 <div style="display: grid; gap: 40px;">
-                    <div class="retro-card" style="background: #FFF9C4;"><strong>ACHILLE:</strong> "Il gruppo è l'appuntamento fisso... riesco a immedesimarmi nella storia dei miei compagni."</div>
-                    <div class="retro-card" style="background: #E3F2FD;"><strong>LUCA:</strong> "Si impara a parlare di emozioni... scavando in un ricordo, vicino o lontano."</div>
-                    <div class="retro-card" style="background: #E0F2F1;"><strong>ANDREA:</strong> "Il gruppo è fatto per stare insieme, ridere, scherzare e lasciarsi alle spalle i traumi."</div>
-                    <div class="retro-card" style="background: #F3E5F5;"><strong>EUGENIO:</strong> "Ho avuto la possibilità di individuare le diverse parti di me. Io ho un nome, ma dentro di me vivono più persone."</div>
+                    <div class="retro-card" style="background: #FFF9C4;"><strong>ACHILLE:</strong> "Il gruppo è l'appuntamento fisso... riesco a immedesimarmi negli altri."</div>
+                    <div class="retro-card" style="background: #E3F2FD;"><strong>LUCA:</strong> "Si impara a parlare di emozioni... scavando in un ricordo."</div>
+                    <div class="retro-card" style="background: #E0F2F1;"><strong>ANDREA:</strong> "Il gruppo è fatto per stare insieme e lasciarsi i traumi alle spalle."</div>
+                    <div class="retro-card" style="background: #F3E5F5;"><strong>EUGENIO:</strong> "Ho avuto la possibilità di individuare le diverse parti di me."</div>
                 </div>
             </div>
         </div>
@@ -328,20 +319,18 @@
                 <ul style="list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; font-size: 1.2rem;">
                     <li><strong>Presidente:</strong> Michael Scorletti</li>
                     <li><strong>Vicepresidente:</strong> Marco Fortuna</li>
-                    <li><strong>Pres. Onorario:</strong> Giorgio Cerizza</li>
                     <li><strong>Tesoriere:</strong> Elena Scherini</li>
                     <li><strong>Segretario:</strong> Francesco Schiavini</li>
                     <li><strong>PR:</strong> Marco Candiani</li>
-                    <li><strong>Resp. Eventi:</strong> M. Gamberini & M. Salvatore</li>
-                    <li><strong>Resp. Sport:</strong> M. Fortuna & G. Gonilho</li>
-                    <li><strong>Resp. Bar:</strong> M. Bigatton & R. Beretta</li>
+                    <li><strong>Eventi:</strong> M. Gamberini & M. Salvatore</li>
+                    <li><strong>Sport:</strong> M. Fortuna & G. Gonilho</li>
                 </ul>
                 <h2 class="font-title" style="margin-top: 80px; border-bottom: 5px solid #000; padding-bottom: 25px; margin-bottom: 40px;">LO STATUTO INTEGRALE</h2>
                 <div style="font-family: serif; font-size: 1.2rem; line-height: 1.9; max-height: 600px; overflow-y: scroll; padding: 40px; background: #fafafa; border: 2px solid #ddd; border-radius: 20px;">
-                    <p><strong>Art. 1 - Denominazione:</strong> L'ente del terzo settore denominato “L’Approdo - APS”.</p>
+                    <p><strong>Art. 1 - Denominazione:</strong> È costituita l'ente denominato “L’Approdo - APS”.</p>
+                    <p><strong>Art. 2 - Statuto:</strong> L'Associazione è disciplinata dal presente statuto.</p>
                     <p><strong>Art. 3 - Finalità:</strong> Solidarietà per la promozione della qualità della vita.</p>
-                    <p><strong>Art. 4 - Attività:</strong> Richiesta di aiuto, sportelli ascolto, attività sportive educative, Festa Analcolica e Marcia Podistica.</p>
-                    <p>(...Articoli completi 1-27 dell'originale...)</p>
+                    <p>(...Articoli 1-27 completi del file originale...)</p>
                 </div>
             </div>
         </div>
@@ -354,16 +343,6 @@
                 <h2 style="color: var(--purple); font-size: 4.5rem; line-height: 0.9;">PREMIAZIONI ASTINENZE</h2>
                 <img src="tornareumani.jpg" style="width: 100%; max-width: 1000px; border: var(--border); border-radius: 40px; margin: 60px 0;" alt="Tornare Umani">
                 <p style="font-size: 2rem; font-weight: 500; max-width: 900px; margin: 0 auto;">Un evento unico per celebrare la scelta di tornare umani lontano dalle sostanze.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-manifesto" class="modal-overlay">
-        <div class="modal-box">
-            <button class="close-modal-btn" onclick="closeModal('modal-manifesto')">&times;</button>
-            <div style="padding: 80px;">
-                <h2 class="font-title" style="font-size: 3.5rem;">CHI SIAMO</h2>
-                <p style="font-size: 1.8rem; margin-top: 50px; line-height: 1.8;">L'Approdo combatte contro le dipendenze da oltre 25 anni. Mettiamo le persone al centro di ogni scelta.</p>
             </div>
         </div>
     </div>
