@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- DESIGN SYSTEM (PREMIUM NEO-BRUTALISM) --- */
+        /* --- DESIGN SYSTEM PREMIUM NEO-BRUTALISM --- */
         :root {
             --yellow: #FFD500; --blue: #1C4ED8; --green: #008060; --purple: #8B5CF6; --mint: #69F0AE; 
             --black: #121212; --white: #FFFFFF; --paper: #fdfaf3;
@@ -18,15 +18,14 @@
             --bg-cream: #FFFDF5; --bg-blue-fade: #F0F7FF; --bg-green-fade: #F1FAF2;
         }
 
-        /* --- BASIC & MOBILE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; cursor: default; } 
         body { font-family: 'Inter', sans-serif; color: var(--black); line-height: 1.6; overflow-x: hidden; background: var(--white); }
         
         h1, h2, h3, h4, .font-title { font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; font-weight: 700; letter-spacing: -2px; }
 
-        /* --- LOGO SIZING --- */
-        .logo-mid-page { width: 100%; max-width: 650px; height: auto; object-fit: contain; margin: 40px auto; display: block; filter: drop-shadow(10px 10px 0px var(--black)); }
+        /* --- LOGO: GRANDE E PROPORZIONATO --- */
+        .logo-mid-page { width: 90%; max-width: 700px; height: auto; object-fit: contain; margin: 60px auto; display: block; filter: drop-shadow(12px 12px 0px var(--black)); }
         .logo-nav { height: 100px; width: auto; object-fit: contain; }
 
         /* --- NAVIGATION --- */
@@ -40,7 +39,7 @@
 
         /* --- UI ELEMENTS --- */
         .highlight { background: var(--mint); padding: 5px 15px; border-radius: 6px; box-shadow: 4px 4px 0 var(--black); display: inline-block; transform: rotate(-1.5deg); }
-        .retro-card { background: white; border: var(--border); box-shadow: var(--shadow); padding: 40px; border-radius: 20px; margin-bottom: 30px; transition: 0.3s; }
+        .retro-card { background: white; border: var(--border); box-shadow: var(--shadow); padding: 40px; border-radius: 20px; margin-bottom: 30px; }
         
         .btn-black, .btn-white, .btn-purple {
             padding: 18px 36px; font-weight: 700; text-decoration: none; border: var(--border);
@@ -52,13 +51,12 @@
         .btn-purple { background: var(--purple); color: white; box-shadow: 5px 5px 0 var(--black); }
 
         /* --- SECTIONS --- */
-        section { padding: 140px 8%; border-bottom: var(--border); min-height: 90vh; display: flex; flex-direction: column; justify-content: center; }
+        section { padding: 120px 8%; border-bottom: var(--border); min-height: 85vh; display: flex; flex-direction: column; justify-content: center; }
         #intro { text-align: center; background: var(--bg-cream); padding-top: 160px; }
         #eventi-hub { background-color: var(--bg-blue-fade); }
         
-        /* --- VIDEO GIGANTE --- */
         .video-container { 
-            width: 100%; max-width: 1200px; margin: 60px auto; border: var(--border); 
+            width: 100%; max-width: 1150px; margin: 60px auto; border: var(--border); 
             box-shadow: 18px 18px 0px var(--black); border-radius: 40px; overflow: hidden; 
             aspect-ratio: 16/9; position: relative; background: #000;
         }
@@ -73,13 +71,12 @@
         .event-img { width: 100%; height: 280px; object-fit: cover; border-bottom: var(--border); }
         .badge-new { position: absolute; top: 20px; right: 20px; background: var(--mint); color: black; padding: 10px 25px; font-weight: 800; border: 3px solid black; transform: rotate(10deg); z-index: 5; box-shadow: 3px 3px 0 black; font-size: 1.1rem; }
 
-        /* --- DIARIO DESIGN (EXPERIENCE) --- */
-        .diary-page { background: var(--paper); padding: 80px 10%; color: #333; position: relative; }
-        .diary-header { text-align: center; margin-bottom: 60px; border-bottom: 4px solid #000; padding-bottom: 40px; }
+        /* --- DIARIO DESIGN --- */
+        .diary-page { background: var(--paper); padding: 100px 10%; color: #333; position: relative; }
+        .diary-header { text-align: center; margin-bottom: 80px; border-bottom: 4px solid #000; padding-bottom: 40px; }
         .diary-date { font-family: 'Courier Prime', monospace; font-size: 1.4rem; color: var(--blue); font-weight: 700; }
         .diary-img-full { width: 100%; height: auto; max-height: 850px; object-fit: cover; border: 15px solid white; box-shadow: 0 30px 60px rgba(0,0,0,0.3); margin: 60px 0; border-radius: 4px; }
-        .diary-content { max-width: 950px; margin: 0 auto; font-size: 1.6rem; line-height: 2.1; }
-        .diary-content p { margin-bottom: 40px; }
+        .diary-content { max-width: 900px; margin: 0 auto; font-size: 1.6rem; line-height: 2.1; }
         .diary-quote { font-family: 'Space Grotesk'; font-size: 3.5rem; text-align: center; margin: 100px 0; color: var(--blue); border-top: 4px solid #000; border-bottom: 4px solid #000; padding: 80px 0; line-height: 1; }
         .diary-row { display: flex; gap: 60px; align-items: center; margin: 110px 0; }
         .diary-row img { width: 48%; height: 500px; object-fit: cover; border: 8px solid white; box-shadow: 20px 20px 0 var(--blue); border-radius: 15px; }
@@ -88,20 +85,18 @@
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 2000; display: none; overflow-y: auto; -webkit-overflow-scrolling: touch; }
         .modal-overlay.active { display: block; }
         .modal-box { width: 95%; max-width: 1300px; margin: 40px auto; background: white; border: var(--border); border-radius: 45px; overflow: hidden; position: relative; box-shadow: 30px 30px 0px var(--black); animation: modalOpen 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
-        .close-modal-btn { position: sticky; top: 25px; right: 25px; float: right; z-index: 100; background: var(--black); color: white; width: 65px; height: 65px; border-radius: 50%; border: none; font-size: 2.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+        .close-modal-btn { position: sticky; top: 25px; right: 25px; float: right; z-index: 100; background: var(--black); color: white; width: 60px; height: 60px; border-radius: 50%; border: none; font-size: 2.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
 
-        /* --- INSTAGRAM GRID --- */
+        /* --- INSTAGRAM FEED --- */
         #contatti { background: var(--black); color: white; padding-bottom: 120px; }
         .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 50px auto; }
         .insta-post { aspect-ratio: 1/1; border: 2px solid #333; overflow: hidden; border-radius: 15px; }
         .insta-post img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
 
-        @keyframes modalOpen { from { transform: translateY(60px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
-
         @media (max-width: 900px) {
             nav { height: 110px; }
             .logo-nav { height: 80px; }
-            .logo-mid-page { max-width: 90%; }
+            .logo-mid-page { max-width: 90%; margin: 30px auto; }
             .nav-links { display: none; }
             section { padding: 100px 6%; }
             .events-split-container { flex-direction: column; }
@@ -131,7 +126,7 @@
         <p style="font-size: 1.8rem; margin: 35px 0; font-weight: 600; color: #444;">"Nascere è un inizio, <span style="border-bottom: 5px solid var(--blue);">rinascere è una scelta</span>."</p>
         <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 50px;">
             <a href="#eventi-hub" class="btn-black">Prossimi Eventi</a>
-            <button onclick="openModal('modal-manifesto')" class="btn-white">La Nostra Storia</button>
+            <button onclick="openModal('modal-manifesto')" class="btn-white">Chi Siamo</button>
         </div>
         
         <div class="video-container">
@@ -147,7 +142,7 @@
                 <div class="scroll-past-events">
                     <div class="event-card">
                         <img src="carnevale1_approdo.jpg" class="event-img" alt="Carnevale">
-                        <div style="padding: 30px;"><h4>Carnevale in Maschera</h4><p>Cena e musica al Feudo di Agnadello.</p></div>
+                        <div style="padding: 30px;"><h4>Carnevale in Maschera</h4><p>Serata indimenticabile al Feudo di Agnadello.</p></div>
                     </div>
                     <div class="event-card">
                         <img src="staffetta_approdo.jpg" class="event-img" alt="Staffetta">
@@ -155,11 +150,11 @@
                     </div>
                     <div class="event-card">
                         <img src="balilla_passato.jpg" class="event-img" alt="Balilla">
-                        <div style="padding: 30px;"><h4>Calcio-balilla umano</h4><p>Sfide giganti e gioco di squadra.</p></div>
+                        <div style="padding: 30px;"><h4>Calcio-balilla umano</h4><p>Sfide giganti e risate.</p></div>
                     </div>
                     <div class="event-card">
                         <img src="premiazioni_passato.jpg" class="event-img" alt="Premiazioni">
-                        <div style="padding: 30px;"><h4>Traguardi Astinenze</h4><p>I successi passati dei nostri ragazzi.</p></div>
+                        <div style="padding: 30px;"><h4>Traguardi Astinenze</h4><p>Celebriamo i successi passati.</p></div>
                     </div>
                 </div>
             </div>
@@ -229,7 +224,7 @@
         </div>
         <div class="insta-grid">
             <div class="insta-post"><img src="azzurri_sempre.jpg" alt="1"></div>
-            <div class="insta-post"><img src="gruppo_oslo.jpg" alt="2"></div>
+            <div class="insta-post"><img src="balilla_passato.jpg" alt="2"></div>
             <div class="insta-post"><img src="carnevale1_approdo.jpg" alt="3"></div>
             <div class="insta-post"><img src="seoul_esultanza.jpg" alt="4"></div>
             <div class="insta-post"><img src="marcia_passato.jpg" alt="5"></div>
@@ -254,9 +249,8 @@
                     <h1 style="font-size: 4rem; line-height: 0.9;">L'Incubo e la Rinascita</h1>
                 </div>
                 <div class="diary-content">
-                    <p>Nel 2024 ho partecipato alla <strong>Homeless World Cup</strong> a Seoul. È stato un viaggio lungo, dentro noi stessi.</p>
+                    <p>Nel 2024 ho partecipato alla <strong>Homeless World Cup</strong> a Seoul. È stato un viaggio lungo, dentro noi stessi. Abbiamo perso le prime 5 partite consecutive. Eravamo demoralizzati, sembrava che tutto svanisse.</p>
                     <img src="azzurri_sempre.jpg" class="diary-img-full" alt="Team Seoul">
-                    <p>Abbiamo perso le prime 5 partite consecutive. Eravamo demoralizzati, sembrava che tutto svanisse. Ma ci siamo guardati negli occhi.</p>
                     <div class="diary-quote">"La vittoria non era nel punteggio, ma nell'esserci rialzati."</div>
                     <div class="diary-row">
                         <div class="text"><p>Alla sesta partita contro la <strong>Svezia</strong> abbiamo vinto ai rigori. Una gioia indescrivibile. Seoul è stata la nostra vera rinascita collettiva.</p></div>
@@ -277,7 +271,6 @@
                 </div>
                 <div class="diary-content">
                     <img src="teamoslo.jpg" class="diary-img-full" alt="Team Oslo" onerror="this.src='https://via.placeholder.com/1200x700/1C4ED8/FFF?text=TEAM+OSLO'">
-                    
                     <div class="diary-row">
                         <img src="achille_oslo.jpg" alt="Achille">
                         <div class="text">
@@ -314,9 +307,20 @@
     </div>
 
     <script>
-        function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = 'auto'; }
-        window.onclick = function(e) { if(e.target.classList.contains('modal-overlay')) { e.target.classList.remove('active'); document.body.style.overflow = 'auto'; } }
+        function openModal(id) { 
+            document.getElementById(id).classList.add('active'); 
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeModal(id) { 
+            document.getElementById(id).classList.remove('active'); 
+            document.body.style.overflow = 'auto'; 
+        }
+        window.onclick = function(e) { 
+            if(e.target.classList.contains('modal-overlay')) { 
+                e.target.classList.remove('active'); 
+                document.body.style.overflow = 'auto'; 
+            }
+        }
     </script>
 </body>
 </html>
