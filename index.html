@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- DESIGN SYSTEM NEO-BRUTALISM PROFESSIONALE --- */
+        /* --- DESIGN SYSTEM NEO-BRUTALISM --- */
         :root {
             --yellow: #FFD500; --blue: #1C4ED8; --green: #008060; --purple: #8B5CF6; --mint: #69F0AE; 
             --black: #121212; --white: #FFFFFF; --paper: #fdfaf3;
@@ -26,7 +26,6 @@
 
         /* --- LOGO STYLING --- */
         .logo-nav { height: 100px; width: auto; object-fit: contain; }
-        .logo-large-start { width: 90%; max-width: 650px; height: auto; object-fit: contain; margin: 40px auto; display: block; filter: drop-shadow(10px 10px 0px var(--black)); }
         .logo-footer-white { width: 85%; max-width: 550px; height: auto; object-fit: contain; margin: 0 auto 60px auto; display: block; filter: brightness(0) invert(1); }
 
         /* --- NAVIGATION --- */
@@ -40,7 +39,7 @@
 
         /* --- UI ELEMENTS --- */
         .highlight { background: var(--mint); padding: 5px 15px; border-radius: 6px; box-shadow: 4px 4px 0 var(--black); display: inline-block; transform: rotate(-1.5deg); }
-        .retro-card { background: white; border: var(--border); box-shadow: var(--shadow); padding: 40px; border-radius: 20px; margin-bottom: 30px; }
+        .retro-card { background: white; border: var(--border); box-shadow: var(--shadow); padding: 40px; border-radius: 20px; margin-bottom: 30px; transition: 0.3s; }
         
         .btn-black, .btn-white, .btn-purple {
             padding: 18px 36px; font-weight: 700; text-decoration: none; border: var(--border);
@@ -89,7 +88,7 @@
         .modal-box { width: 95%; max-width: 1300px; margin: 40px auto; background: white; border: var(--border); border-radius: 45px; overflow: hidden; position: relative; box-shadow: 30px 30px 0px var(--black); animation: modalOpen 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
         .close-modal-btn { position: sticky; top: 25px; right: 25px; float: right; z-index: 100; background: var(--black); color: white; width: 65px; height: 65px; border-radius: 50%; border: none; font-size: 2.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
 
-        /* --- INSTAGRAM GRID --- */
+        /* --- INSTAGRAM FEED --- */
         #contatti { background: var(--black); color: white; padding-top: 80px; padding-bottom: 120px; }
         .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 50px auto; }
         .insta-post { aspect-ratio: 1/1; border: 2px solid #333; overflow: hidden; border-radius: 15px; }
@@ -100,7 +99,6 @@
         @media (max-width: 900px) {
             nav { height: 110px; }
             .logo-nav { height: 80px; }
-            .logo-large-start { max-width: 85%; }
             .logo-footer-white { max-width: 80%; }
             .nav-links { display: none; }
             section { padding: 100px 6%; }
@@ -137,9 +135,7 @@
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/3VQFxCeLBPA" allowfullscreen title="L'Approdo"></iframe>
         </div>
-
-        <img src="approdo_logo.png" class="logo-large-start" alt="Logo L'Approdo Grande">
-    </section>
+        </section>
 
     <section id="eventi-hub">
         <h2 style="text-align: center; font-size: 4rem; line-height: 0.9; margin-bottom: 60px;">DALLA FATICA<br>ALLA FESTA</h2>
@@ -169,12 +165,12 @@
             <div class="events-col">
                 <h3 class="font-title" style="color: var(--purple); margin-bottom: 40px; font-size: 2.2rem;">IL FUTURO <span class="highlight">CHE CI ASPETTA</span></h3>
                 <div class="event-card" style="border-color: var(--purple);">
-                    <div class="badge-new">PROSSIMO!</div>
+                    <div class="badge-new">NEW</div>
                     <img src="tornareumani.jpg" class="event-img" style="height: 500px;" alt="Tornare Umani" onerror="this.src='https://via.placeholder.com/600x800/8B5CF6/fff?text=TORNARE+UMANI'">
                     <div style="padding: 40px;">
                         <h3 style="color:var(--purple); font-size: 2.8rem; margin-bottom: 15px; line-height: 0.95;">Premiazioni astinenze: tornare umani</h3>
-                        <p style="font-size: 1.5rem; font-weight: 500; margin-bottom: 30px;">Un momento solenne per celebrare chi ha scelto di riabbracciare la propria umanità.</p>
-                        <button class="btn-purple" style="width:100%;" onclick="openModal('modal-astinenze')">Dettagli Evento</button>
+                        <p style="font-size: 1.5rem; font-weight: 500; margin-bottom: 30px;">Celebriamo chi ha scelto di riabbracciare la propria umanità.</p>
+                        <button class="btn-purple" style="width:100%;" onclick="openModal('modal-astinenze')">Vedi i Dettagli</button>
                     </div>
                 </div>
             </div>
@@ -250,14 +246,17 @@
             <button class="close-modal-btn" onclick="closeModal('modal-seoul')">&times;</button>
             <div class="diary-page">
                 <div class="diary-header">
-                    <span class="diary-date">Seoul, Corea del Sud - 2024</span>
+                    <span class="diary-date">Seoul 2024</span>
                     <h1 style="font-size: 4rem; line-height: 0.9;">L'Incubo e la Rinascita</h1>
                 </div>
                 <div class="diary-content">
-                    <p>Nel 2024 ho partecipato alla Homeless World Cup a Seoul. Abbiamo perso le prime 5 partite consecutive. Eravamo demoralizzati, sembrava che tutto svanisse.</p>
-                    <img src="azzurri_sempre.jpg" class="diary-img-full" alt="Team">
-                    <div class="diary-quote">"La vittoria non era nel punteggio, ma nell'esserci rialzati insieme."</div>
-                    <p>Alla sesta partita contro la Svezia abbiamo vinto ai rigori. Seoul è stata la nostra vera rinascita collettiva.</p>
+                    <p>Nel 2024 ho partecipato alla <strong>Homeless World Cup</strong> a Seoul. Abbiamo perso le prime 5 partite consecutive. Eravamo demoralizzati, sembrava che tutto svanisse.</p>
+                    <img src="azzurri_sempre.jpg" class="diary-img-full" alt="Team Seoul">
+                    <div class="diary-quote">"La vittoria non era nel punteggio, ma nell'esserci rialzati."</div>
+                    <div class="diary-row">
+                        <div class="text"><p>Alla sesta partita contro la <strong>Svezia</strong> abbiamo vinto ai rigori. Una gioia indescrivibile. Seoul è stata la nostra vera rinascita collettiva.</p></div>
+                        <img src="seoul_azione.jpg" alt="Azione Seoul">
+                    </div>
                 </div>
             </div>
         </div>
@@ -277,6 +276,7 @@
                         <img src="achille_oslo.jpg" alt="Achille">
                         <div class="text"><h3 class="font-title" style="color:var(--blue); font-size: 2.5rem;">ACHILLE: IL CAPITANO</h3><p>Guidare la squadra a Oslo ha significato prendersi cura della fragilità dei compagni.</p></div>
                     </div>
+                    <div class="diary-quote">"Un viaggio TRASFORMATIVO."</div>
                 </div>
             </div>
         </div>
@@ -284,6 +284,17 @@
 
     <div id="modal-gruppo" class="modal-overlay">
         <div class="modal-box"><button class="close-modal-btn" onclick="closeModal('modal-gruppo')">&times;</button><div style="padding: 80px;"><h2 class="font-title" style="font-size: 3.5rem; border-bottom: 6px solid #000; padding-bottom: 25px; margin-bottom: 60px;">VOCI REALI</h2><div style="display: grid; gap: 40px;"><div class="retro-card" style="background: #FFF9C4;"><strong>ACHILLE:</strong> "Il gruppo è l'appuntamento fisso... riesco a immedesimarmi negli altri."</div><div class="retro-card" style="background: #E3F2FD;"><strong>LUCA:</strong> "Si impara a parlare di emozioni... scavando in un ricordo."</div><div class="retro-card" style="background: #E0F2F1;"><strong>ANDREA:</strong> "Il gruppo è fatto per stare insieme e lasciarsi i traumi alle spalle."</div><div class="retro-card" style="background: #F3E5F5;"><strong>EUGENIO:</strong> "Ho avuto la possibilità di individuare le diverse parti di me."</div></div></div></div>
+    </div>
+
+    <div id="modal-astinenze" class="modal-overlay">
+        <div class="modal-box" style="border-color: var(--purple);">
+            <button class="close-modal-btn" onclick="closeModal('modal-astinenze')">&times;</button>
+            <div style="padding: 90px; text-align: center;">
+                <h2 style="color: var(--purple); font-size: 4.5rem; line-height: 0.9;">PREMIAZIONI ASTINENZE</h2>
+                <img src="tornareumani.jpg" style="width: 100%; max-width: 1000px; border: var(--border); border-radius: 40px; margin: 60px 0;" alt="Tornare Umani" onerror="this.src='https://via.placeholder.com/1000x700/8B5CF6/FFF?text=PREMIAZIONI+ASTINENZE'">
+                <p style="font-size: 2rem; font-weight: 500; max-width: 900px; margin: 0 auto;">Un momento unico per celebrare la scelta di tornare umani lontano dalle sostanze.</p>
+            </div>
+        </div>
     </div>
 
     <script>
