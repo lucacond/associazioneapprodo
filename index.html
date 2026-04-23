@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>L'Approdo - Rinascere è una Scelta</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- DESIGN SYSTEM (PREMIUM NEO-BRUTALISM) --- */
+        :root {
+            --yellow: #FFD500; --blue: #1C4ED8; --green: #008060; --purple: #8B5CF6; --mint: #69F0AE; 
+            --black: #121212; --white: #FFFFFF; --paper: #fdfaf3;
+            --border: 4px solid #121212;
+            --shadow: 12px 12px 0px #121212;
+            --bg-cream: #FFFDF5; --bg-blue-fade: #F0F7FF; --bg-green-fade: #F1FAF2;
+        }
+
+        /* --- BASIC & MOBILE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; cursor: default; } 
+        body { font-family: 'Inter', sans-serif; color: var(--black); line-height: 1.6; overflow-x: hidden; background: var(--white); }
+        
+        h1, h2, h3, h4, .font-title { font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; font-weight: 700; letter-spacing: -1px; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            border-bottom: var(--border); height: 90px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%;
+        }
+        .nav-logo { height: 75px; width: auto; transition: 0.3s; }
+        .nav-logo:hover { transform: scale(1.05) rotate(-2deg); }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--black); font-weight: 700; font-family: 'Space Grotesk'; font-size: 0.9rem; }
+
+        /* --- UI ELEMENTS --- */
+        .highlight { background: var(--mint); padding: 2px 10px; border-radius: 4px; box-shadow: 3px 3px 0 var(--black); display: inline-block; transform: rotate(-1deg); }
+        .retro-card { background: white; border: var(--border); box-shadow: var(--shadow); padding: 40px; border-radius: 16px; margin-bottom: 30px; transition: 0.3s; }
+        .retro-card:hover { transform: translate(-5px, -5px); box-shadow: 18px 18px 0 var(--black); }
+
+        .btn-black, .btn-white, .btn-purple {
+            padding: 18px 36px; font-weight: 700; text-decoration: none; border: var(--border);
+            display: inline-block; cursor: pointer; font-family: 'Space Grotesk'; text-transform: uppercase;
+            border-radius: 50px; transition: 0.2s; position: relative; text-align: center;
+        }
+        .btn-black { background: var(--black); color: white; box-shadow: 4px 4px 0 var(--mint); }
+        .btn-white { background: white; color: var(--black); box-shadow: 4px 4px 0 var(--black); }
+        .btn-purple { background: var(--purple); color: white; box-shadow: 4px 4px 0 var(--black); }
+        .btn-black:active, .btn-white:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--black); }
+
+        /* --- SECTIONS --- */
+        section { padding: 120px 8%; border-bottom: var(--border); min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
+        #intro { text-align: center; background: var(--bg-cream); padding-top: 180px; }
+        #eventi-hub { background-color: var(--bg-blue-fade); }
+        #gruppo { background-color: white; }
+        #nazionale { background-color: white; }
+        #socio-section { background-color: var(--bg-green-fade); text-align: center; }
+        #statuto-section { background-color: var(--yellow); text-align: center; }
+
+        /* --- VIDEO GIGANTE --- */
+        .video-container { 
+            width: 100%; max-width: 1200px; /* Portato a 1200px per renderlo grande */
+            margin: 60px auto; border: var(--border); 
+            box-shadow: var(--shadow); border-radius: 30px; overflow: hidden; 
+            aspect-ratio: 16/9; position: relative; 
+        }
+        .video-container iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- EVENTI LAYOUT --- */
+        .events-split-container { display: flex; gap: 40px; margin-top: 40px; }
+        .events-col { flex: 1; }
+        .events-col-left { border-right: 3px dashed var(--black); padding-right: 30px; }
+        .event-card { background: white; border: var(--border); box-shadow: 8px 8px 0 rgba(0,0,0,0.1); border-radius: 12px; margin-bottom: 25px; overflow: hidden; transition: 0.3s; position: relative; }
+        .event-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .event-img { width: 100%; height: 220px; object-fit: cover; border-bottom: var(--border); }
+        .badge-new { position: absolute; top: 20px; right: 20px; background: var(--mint); color: black; padding: 5px 15px; font-weight: bold; border: 2px solid black; transform: rotate(10deg); z-index: 5; box-shadow: 3px 3px 0 black; }
+
+        /* --- DIARIO DESIGN --- */
+        .diary-page { background: var(--paper); padding: 80px 10%; color: #333; position: relative; }
+        .diary-header { text-align: center; margin-bottom: 60px; border-bottom: 3px solid #000; padding-bottom: 30px; }
+        .diary-date { font-family: 'Courier Prime', monospace; font-size: 1.2rem; color: var(--blue); margin-bottom: 10px; display: block; }
+        .diary-img-full { width: 100%; height: auto; max-height: 750px; object-fit: cover; border: 12px solid white; box-shadow: 0 15px 45px rgba(0,0,0,0.2); margin: 50px 0; transform: rotate(-1deg); border-radius: 4px; }
+        .diary-content { max-width: 850px; margin: 0 auto; font-size: 1.4rem; line-height: 1.9; }
+        .diary-content p { margin-bottom: 35px; }
+        .diary-quote { font-family: 'Space Grotesk'; font-size: 2.8rem; font-weight: 700; text-align: center; margin: 80px 0; color: var(--blue); border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 60px 0; line-height: 1.1; }
+        .diary-row { display: flex; gap: 50px; align-items: center; margin: 80px 0; }
+        .diary-row.reverse { flex-direction: row-reverse; }
+        .diary-row img { width: 45%; height: 450px; object-fit: cover; border: 5px solid white; box-shadow: 12px 12px 0 var(--blue); border-radius: 10px; }
+
+        /* --- MODALS --- */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 2000; display: none; overflow-y: auto; }
+        .modal-overlay.active { display: block; }
+        .modal-box { width: 95%; max-width: 1150px; margin: 40px auto; background: white; border: var(--border); border-radius: 24px; overflow: hidden; position: relative; box-shadow: 20px 20px 0px var(--black); animation: modalOpen 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+        .close-modal-btn { position: sticky; top: 20px; right: 20px; float: right; z-index: 100; background: var(--black); color: white; width: 60px; height: 60px; border-radius: 50%; border: none; font-size: 2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+        .close-modal-btn:hover { transform: scale(1.1) rotate(90deg); }
+
+        /* --- FEED INSTAGRAM --- */
+        #contatti { background: var(--black); color: white; padding-bottom: 100px; }
+        .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 50px auto; }
+        .insta-post { aspect-ratio: 1/1; border: 2px solid #333; overflow: hidden; position: relative; border-radius: 12px; }
+        .insta-post img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.4s; }
+        .insta-post:hover img { opacity: 1; transform: scale(1.08); }
+
+        @keyframes modalOpen { from { transform: translateY(60px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            section { padding: 100px 6%; }
+            .events-split-container { flex-direction: column; }
+            .events-col-left { border-right: none; border-bottom: 3px dashed #ccc; padding-right: 0; padding-bottom: 40px; }
+            .diary-row { flex-direction: column; }
+            .diary-row img, .diary-row .text { width: 100%; }
+            .insta-grid { grid-template-columns: repeat(2, 1fr); }
+            h1 { font-size: 2.8rem !important; }
+            .video-container { border-radius: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#"><img src="approdo_logo.png" class="nav-logo" alt="L'Approdo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"></a>
+        <ul class="nav-links">
+            <li><a href="#intro">Start</a></li>
+            <li><a href="#eventi-hub">Eventi</a></li>
+            <li><a href="#gruppo">Il Gruppo</a></li>
+            <li><a href="#nazionale">Nazionale</a></li>
+            <li><a href="#statuto-section">Statuto</a></li>
+            <li><a href="#socio-section" class="highlight">Unisciti</a></li>
+        </ul>
+    </nav>
+
+    <section id="intro">
+        <h1 style="font-size: clamp(2.8rem, 9vw, 5.5rem);">Mettiamo le Persone<br><span class="highlight">Al Posto delle Sostanze</span></h1>
+        <p style="font-size: 1.5rem; margin: 30px 0; font-weight: 500;">"Nascere è un inizio, <span class="highlight" style="background:var(--blue); color:white;">rinascere è una scelta</span>."</p>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+            <a href="#eventi-hub" class="btn-black">Prossimi Eventi</a>
+            <button onclick="openModal('modal-manifesto')" class="btn-white">Chi Siamo</button>
+        </div>
+        
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/3VQFxCeLBPA" allowfullscreen title="L'Approdo Video"></iframe>
+        </div>
+    </section>
+
+    <section id="eventi-hub">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <img src="approdo_logo.png" style="height: 110px; margin-bottom: 25px;" alt="Logo Sezione">
+            <h2 style="font-size: 3.5rem;">DALLA FATICA ALLA FESTA</h2>
+        </div>
+        <div class="events-split-container">
+            <div class="events-col-left events-col">
+                <h3 class="font-title" style="margin-bottom: 30px;">IL PASSATO <span class="highlight">CHE UNISCE</span></h3>
+                <div class="event-card">
+                    <img src="balilla_passato.jpg" class="event-img" alt="Calcio Balilla" onerror="this.src='https://via.placeholder.com/400x220?text=CALCIO-BALILLA'">
+                    <div style="padding: 25px;"><span class="event-date" style="background:#000; color:#fff; padding:6px 12px; font-weight:700;">TORNEO</span><h4>Calcio-balilla umano</h4><p>Sfide, risate e gioco di squadra in una versione gigante.</p></div>
+                </div>
+                <div class="event-card">
+                    <img src="premiazioni_passato.jpg" class="event-img" alt="Premiazioni" onerror="this.src='https://via.placeholder.com/400x220?text=PREMIAZIONI'">
+                    <div style="padding: 25px;"><span class="event-date" style="background:#000; color:#fff; padding:6px 12px; font-weight:700;">TRAGUARDI</span><h4>Premiazioni delle Astinenze</h4><p>Celebriamo la rinascita e la costanza dei nostri ragazzi.</p></div>
+                </div>
+                <div class="event-card">
+                    <img src="marcia_passato.jpg" class="event-img" alt="Marcia" onerror="this.src='https://via.placeholder.com/400x220?text=LA+MARCIA'">
+                    <div style="padding: 25px;"><span class="event-date" style="background:#000; color:#fff; padding:6px 12px; font-weight:700;">SPORT</span><h4>La marcia dell’Approdo</h4><p>Camminare insieme verso un obiettivo comune.</p></div>
+                </div>
+            </div>
+            <div class="events-col">
+                <h3 class="font-title" style="color: var(--purple); margin-bottom: 30px;">IL FUTURO <span class="highlight">CHE CI ASPETTA</span></h3>
+                <div class="event-card" style="border-color: var(--purple);">
+                    <div class="badge-new">PROSSIMO!</div>
+                    <img src="carnevale1_approdo.jpg" class="event-img" alt="Carnevale" onerror="this.src='https://via.placeholder.com/600x350/8B5CF6/fff?text=CARNEVALE'">
+                    <div style="padding: 30px;">
+                        <span style="background:var(--purple); color:#fff; padding:6px 12px; font-weight:700;">21 FEBBRAIO</span>
+                        <h3 style="color:var(--purple); margin: 15px 0;">CARNEVALE IN MASCHERA</h3>
+                        <p>📍 Ristorante "Il Feudo di Agnadello" (CR)</p>
+                        <button class="btn-purple" style="width:100%; margin-top:25px;" onclick="openModal('modal-carnevale')">Leggi i Dettagli</button>
+                    </div>
+                </div>
+                <div class="event-card" style="border-color: var(--blue);">
+                    <img src="staffetta_approdo.jpg" class="event-img" alt="Staffetta" onerror="this.src='https://via.placeholder.com/600x350/1C4ED8/fff?text=MILANO+MARATHON'">
+                    <div style="padding: 30px;">
+                        <span style="background:var(--blue); color:#fff; padding:6px 12px; font-weight:700;">12 APRILE 2026</span>
+                        <h3 style="color:var(--blue); margin: 15px 0;">STAFFETTA MILANO MARATHON</h3>
+                        <p>Facciamo fatica, insieme. Unisciti alla sfida.</p>
+                        <button class="btn-black" style="width:100%; margin-top:20px;" onclick="openModal('modal-marcia')">Dettagli Staffetta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gruppo">
+        <h2 style="text-align: center; font-size: 3.5rem; margin-bottom: 60px;">LA FATICA: UNA RISORSA</h2>
+        <div class="retro-card" style="max-width: 1000px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; align-items: center;">
+                <div>
+                    <h3>REGOLE DEL GRUPPO</h3>
+                    <ul style="list-style: none; font-size: 1.4rem; margin-top: 30px; line-height: 2.2;">
+                        <li><i class="fas fa-clock" style="color:var(--blue); width: 30px;"></i> Durata: 90 Minuti</li>
+                        <li><i class="fas fa-calendar-alt" style="color:var(--blue); width: 30px;"></i> Frequenza: Settimanale</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--blue); width: 30px;"></i> Astinenza: Giro iniziale</li>
+                        <li><i class="fas fa-hand-paper" style="color:var(--blue); width: 30px;"></i> Parola: Alzata di mano</li>
+                    </ul>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <img src="gruppo_cerchio.jpg" style="width:100%; border-radius:12px; border:var(--border);" alt="Gruppo 1" onerror="this.src='https://via.placeholder.com/300x280?text=GRUPPO+1'">
+                    <img src="gruppo_dettaglio.jpg" style="width:100%; border-radius:12px; border:var(--border);" alt="Gruppo 2" onerror="this.src='https://via.placeholder.com/300x280?text=GRUPPO+2'">
+                </div>
+            </div>
+            <button onclick="openModal('modal-gruppo')" class="btn-black" style="width: 100%; margin-top: 50px; font-size: 1.2rem;">Leggi le Testimonianze dei Ragazzi</button>
+        </div>
+    </section>
+
+    <section id="nazionale">
+        <div class="retro-card" style="background:var(--blue); color:white; border-radius: 40px; padding: 70px;">
+            <div style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap;">
+                <div style="flex: 2;">
+                    <div style="display: flex; gap: 30px; margin-bottom: 40px;">
+                        <img src="approdo_logo.png" style="height: 100px; filter: brightness(0) invert(1);" alt="Logo">
+                        <img src="nazionale_logo.png" style="height: 100px; object-fit: contain;" alt="Nazionale">
+                    </div>
+                    <h2 style="font-size: 4rem;">NAZIONALE SOLIDALE <i class="fas fa-futbol"></i></h2>
+                    <h3 style="color: var(--yellow); font-size: 2rem; margin: 20px 0 40px 0;">SEOUL 2024 & OSLO 2025</h3>
+                    <div style="display: flex; gap: 25px; flex-wrap: wrap;">
+                        <button onclick="openModal('modal-seoul')" class="btn-white">Diario di Seoul</button>
+                        <button onclick="openModal('modal-oslo')" class="btn-black" style="border-color:white;">Diario di Oslo</button>
+                    </div>
+                </div>
+                <div style="flex: 1;">
+                    <img src="azzurri_sempre.jpg" style="width:100%; border:7px solid #fff; border-radius:25px; box-shadow: 15px 15px 0 #000;" alt="Azzurri" onerror="this.src='https://via.placeholder.com/450x450?text=TEAM'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="socio-section">
+        <div class="retro-card" style="background: var(--green); color: white; border-radius: 40px; padding: 90px 40px;">
+            <h2 style="font-size: 3.8rem; margin-bottom: 25px;">DIVENTA SOCIO DELL'APPRODO</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto;">Sostienici e partecipa alla nostra missione. Abbiamo bisogno della tua energia.</p>
+            <button onclick="openModal('modal-socio')" class="btn-white" style="font-size: 1.4rem; padding: 25px 70px;">VOGLIO AIUTARE!</button>
+        </div>
+    </section>
+
+    <section id="statuto-section">
+        <h2 style="font-size: 3.5rem; margin-bottom: 40px;">TRASPARENZA</h2>
+        <button onclick="openModal('modal-statuto')" class="btn-black" style="font-size: 1.3rem;">Visualizza Statuto e Organigramma</button>
+    </section>
+
+    <section id="contatti">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-size: 4rem; color: white; margin-bottom: 15px;">IL NOSTRO FEED</h2>
+            <p style="font-size: 1.4rem; color: #aaa;">Seguici per vivere con noi ogni momento</p>
+        </div>
+
+        <div class="insta-grid">
+            <div class="insta-post"><img src="azzurri_sempre.jpg" alt="Feed 1" onerror="this.src='https://via.placeholder.com/400?text=FOTO+1'"></div>
+            <div class="insta-post"><img src="gruppo_cerchio.jpg" alt="Feed 2" onerror="this.src='https://via.placeholder.com/400?text=FOTO+2'"></div>
+            <div class="insta-post"><img src="carnevale1_approdo.jpg" alt="Feed 3" onerror="this.src='https://via.placeholder.com/400?text=FOTO+3'"></div>
+            <div class="insta-post"><img src="seoul_esultanza.jpg" alt="Feed 4" onerror="this.src='https://via.placeholder.com/400?text=FOTO+4'"></div>
+            <div class="insta-post"><img src="marcia_passato.jpg" alt="Feed 5" onerror="this.src='https://via.placeholder.com/400?text=FOTO+5'"></div>
+            <div class="insta-post"><img src="premiazioni_passato.jpg" alt="Feed 6" onerror="this.src='https://via.placeholder.com/400?text=FOTO+6'"></div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 70px;">
+            <a href="https://instagram.com/associazioneapprodo" target="_blank" class="btn-white" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; border: none; font-size: 1.2rem;">
+                <i class="fab fa-instagram"></i> @associazioneapprodo
+            </a>
+            <a href="mailto:associazioneapprodo@gmail.com" class="btn-black" style="border-color: #555; font-size: 1.2rem;">
+                <i class="fas fa-envelope"></i> Scrivici un messaggio
+            </a>
+        </div>
+
+        <div style="margin-top: 100px; text-align: center; border-top: 2px solid #333; padding-top: 50px; color: #888;">
+            <p style="font-weight: bold; color: white; font-size: 1.2rem;">L'APPRODO APS</p>
+            <p><i class="fas fa-map-marker-alt"></i> Via Renzi 5, Rivolta D'Adda (CR)</p>
+            <p style="margin-top: 30px; font-size: 0.9rem; letter-spacing: 2px;">INIZIAMO A FAR FATICA, INSIEME!</p>
+        </div>
+    </section>
+
+    <div id="modal-seoul" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal-btn" onclick="closeModal('modal-seoul')">&times;</button>
+            <div class="diary-page">
+                <div class="diary-header">
+                    <span class="diary-date">Seoul, Corea del Sud - Settembre 2024</span>
+                    <h1 style="font-size: 3.8rem;">L'Incubo e la Rinascita</h1>
+                </div>
+                <div class="diary-content">
+                    <p>Nel 2024 ho partecipato alla <strong>Homeless World Cup</strong> a Seoul. Per me e per i miei compagni, è stata un'esperienza indimenticabile. È stato un viaggio lungo, non solo in chilometri, ma dentro noi stessi.</p>
+                    
+                    <img src="azzurri_sempre.jpg" class="diary-img-full" alt="Seoul Team" onerror="this.src='https://via.placeholder.com/1200x650?text=TEAM+AZZURRI+SEOUL'">
+                    
+                    <p>Abbiamo iniziato male. <strong>Abbiamo perso le prime 5 partite.</strong> Una dopo l'altra. Eravamo demoralizzati, a terra. Sembrava che tutto quello per cui ci eravamo allenati stesse svanendo. Ci siamo guardati negli occhi, ci siamo confrontati.</p>
+                    
+                    <div class="diary-quote">"Nei momenti più difficili, ci siamo presi per mano e abbiamo rivolto tutta l'attenzione verso il nostro compagno."</div>
+                    
+                    <div class="diary-row">
+                        <div class="text">
+                            <p>Poi è arrivata la svolta. Alla 6ª partita contro la Svezia abbiamo vinto ai rigori. È esplosa una gioia incontenibile. Abbiamo festeggiato come se avessimo vinto la Coppa del Mondo. Lì abbiamo capito che la vittoria non era solo nel punteggio, ma nell'esserci rialzati insieme.</p>
+                        </div>
+                        <img src="seoul_azione.jpg" alt="Azione Seoul" onerror="this.src='https://via.placeholder.com/600x450?text=AZIONE+SUL+CAMPO'">
+                    </div>
+
+                    <p>Nei momenti più difficili, ci siamo presi per mano e abbiamo rivolto tutta l'attenzione verso il nostro compagno, verso le sue paure e i suoi ostacoli. Questo è stato il vero trionfo. Seoul ci ha insegnato che rinascere è possibile, anche quando tutto sembra perduto.</p>
+
+                    <div class="photo-pair" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 50px 0;">
+                        <img src="seoul_luca_gioco.jpg" style="width:100%; border:var(--border);" alt="Luca gioco" onerror="this.src='https://via.placeholder.com/500x400?text=LUCA+IN+GIOCO'">
+                        <img src="seoul_mano.jpg" style="width:100%; border:var(--border);" alt="Mano" onerror="this.src='https://via.placeholder.com/500x400?text=IL+GRUPPO'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-oslo" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal-btn" onclick="closeModal('modal-oslo')">&times;</button>
+            <div class="diary-page">
+                <div class="diary-header">
+                    <span class="diary-date">Oslo, Norvegia - 2025</span>
+                    <h1 style="font-size: 3.8rem;">Diario di Oslo 2025</h1>
+                </div>
+                <div class="diary-content">
+                    <img src="gruppo_oslo.jpg" class="diary-img-full" alt="Team Oslo" onerror="this.src='https://via.placeholder.com/1200x650?text=NAZIONALE+A+OSLO'">
+                    
+                    <div class="diary-row">
+                        <img src="achille_oslo.jpg" alt="Achille Capitano" onerror="this.src='https://via.placeholder.com/500x650?text=ACHILLE+OSLO'">
+                        <div class="text">
+                            <h3 class="font-title" style="color:var(--blue);">ACHILLE: IL CAPITANO</h3>
+                            <p>Con la fascia da capitano della Nazionale Solidale, Achille ha guidato la squadra vivendo un'esperienza di crescita, responsabilità e riscatto. Guidare i compagni significa prendersi cura delle fragilità di ognuno.</p>
+                        </div>
+                    </div>
+
+                    <div class="diary-quote">"TRASFOMAZIONE: è questa la parola che definisce Oslo."</div>
+
+                    <div class="diary-row reverse">
+                        <img src="giuseppe_oslo.jpg" alt="Giuseppe Portiere" onerror="this.src='https://via.placeholder.com/500x650?text=GIUSEPPE+PORTIERE'">
+                        <div class="text">
+                            <h3 class="font-title" style="color:var(--blue);">GIUSEPPE: LE EMOZIONI</h3>
+                            <p><i>"Mi ha dato modo di cambiare prospettiva su quanto possano essere forti ed indimenticabili le emozioni quando vengono condivise con un gruppo."</i></p>
+                            <p>Attraverso i suoi guanti ha difeso la porta, ma ha anche aperto il cuore alla comunicazione trasparente con i suoi compagni di squadra.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-gruppo" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal-btn" onclick="closeModal('modal-gruppo')">&times;</button>
+            <div style="padding: 70px;">
+                <h2 class="font-title" style="font-size: 3.2rem; margin-bottom: 50px; border-bottom: 5px solid #000; padding-bottom: 15px;">LE VOCI DEI PROTAGONISTI</h2>
+                <div style="display: grid; gap: 35px;">
+                    <div class="retro-card" style="background: #FFF9C4;">
+                        <h4 class="font-title">ACHILLE</h4>
+                        <p style="font-style: italic; font-size: 1.3rem;">"Il gruppo è l'appuntamento fisso... riesco a immedesimarmi nella storia dei miei compagni."</p>
+                    </div>
+                    <div class="retro-card" style="background: #E3F2FD;">
+                        <h4 class="font-title">LUCA</h4>
+                        <p style="font-style: italic; font-size: 1.3rem;">"Al gruppo si impara a parlare di emozioni, di come ci si sente ora che si sta scavando in un ricordo."</p>
+                    </div>
+                    <div class="retro-card" style="background: #E0F2F1;">
+                        <h4 class="font-title">ANDREA</h4>
+                        <p style="font-style: italic; font-size: 1.3rem;">"Il gruppo è fatto per stare insieme, per ridere, per scherzare, per piangere e per lavorare sodo."</p>
+                    </div>
+                    <div class="retro-card" style="background: #F3E5F5;">
+                        <h4 class="font-title">EUGENIO</h4>
+                        <p style="font-style: italic; font-size: 1.3rem;">"Ho avuto la possibilità di scavare nel passato e di individuare le diverse parti di me."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-statuto" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal-btn" onclick="closeModal('modal-statuto')">&times;</button>
+            <div style="padding: 70px;">
+                <h2 class="font-title" style="border-bottom: 4px solid #000; padding-bottom: 15px;">ORGANIGRAMMA COMPLETO</h2>
+                <ul style="list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 40px 0; font-size: 1.1rem;">
+                    <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><strong>Presidente:</strong> Michael Scorletti</li>
+                    <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><strong>Vicepresidente:</strong> Marco Fortuna</li>
+                    <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><strong>Pres. Onorario:</strong> Giorgio Cerizza</li>
+                    <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><strong>Tesoriere:</strong> Elena Scherini</li>
+                    <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><strong>Segretario:</strong> Francesco Schiavini</li>
+                    <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><strong>PR:</strong> Marco Candiani</li>
+                    <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><strong>Eventi:</strong> M. Gamberini & M. Salvatore</li>
+                    <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><strong>Sport:</strong> M. Fortuna & G. Gonilho</li>
+                    <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><strong>Bar:</strong> M. Bigatton & R. Beretta</li>
+                </ul>
+                <h2 class="font-title" style="margin-top: 60px; border-bottom: 4px solid #000; padding-bottom: 15px;">LO STATUTO</h2>
+                <div style="font-family: serif; font-size: 1.15rem; line-height: 1.8; max-height: 450px; overflow-y: scroll; padding: 40px; background: #fafafa; border: 1px solid #ddd; border-radius: 15px; margin-top: 30px;">
+                    <p><strong>Art. 1 - Denominazione:</strong> L'ente del terzo settore denominato “L’Approdo - APS”.</p>
+                    <p><strong>Art. 3 - Finalità:</strong> L’Associazione persegue finalità civiche e solidaristiche per la promozione di una migliore qualità della vita della persona e della famiglia.</p>
+                    <p><strong>Art. 4 - Attività:</strong> Facilitazione della richiesta di aiuto, attività sportive educative, Festa Analcolica e Marcia Podistica.</p>
+                    <p>(...Seguono gli articoli completi 1-27 dell'originale...)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-carnevale" class="modal-overlay">
+        <div class="modal-box" style="border-color: var(--purple);">
+            <button class="close-modal-btn" onclick="closeModal('modal-carnevale')">&times;</button>
+            <div style="padding: 70px; text-align: center;">
+                <h2 class="font-title" style="color: var(--purple); font-size: 3.5rem;">CARNEVALE 2026</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 50px 0;">
+                    <img src="carnevale1_approdo.jpg" style="width:100%; border:var(--border); border-radius:20px;" alt="Locandina 1" onerror="this.src='https://via.placeholder.com/450x650?text=CARNEVALE+1'">
+                    <img src="carnevale2_approdo.jpg" style="width:100%; border:var(--border); border-radius:20px;" alt="Locandina 2" onerror="this.src='https://via.placeholder.com/450x650?text=CARNEVALE+2'">
+                </div>
+                <p style="font-size: 1.5rem; margin-bottom: 20px;">📍 Ristorante "Il Feudo di Agnadello" (CR)</p>
+                <p style="font-weight: bold; font-size: 1.3rem;">Cena + Musica dal Vivo + Premio al Miglior Costume</p>
+                <div style="margin-top: 40px; background: var(--purple); color: white; padding: 15px 30px; border-radius: 50px; display: inline-block;">
+                    <strong>Eugenio: +39 338 382 2700</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-marcia" class="modal-overlay">
+        <div class="modal-box" style="border-color: var(--blue);">
+            <button class="close-modal-btn" onclick="closeModal('modal-marcia')">&times;</button>
+            <div style="padding: 70px; text-align: center;">
+                <h2 class="font-title" style="color: var(--blue); font-size: 3.5rem;">MILANO MARATHON</h2>
+                <img src="staffetta_approdo.jpg" style="width:100%; max-width:850px; border:var(--border); border-radius:30px; margin: 40px 0;" alt="Marathon" onerror="this.src='https://via.placeholder.com/850x600/1C4ED8/FFF?text=MILANO+MARATHON+2026'">
+                <p style="font-size: 1.6rem; font-weight: bold;">12 Aprile 2026</p>
+                <p style="margin: 20px 0; font-size: 1.3rem;">Facciamo fatica, insieme. Unisciti alla staffetta dell'Approdo.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-socio" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal-btn" onclick="closeModal('modal-socio')">&times;</button>
+            <div style="padding: 70px; text-align: center;">
+                <h2 class="font-title" style="color: var(--green); font-size: 3.5rem;">SOSTIENICI</h2>
+                <div style="background: var(--yellow); border: var(--border); padding: 50px; border-radius: 25px; margin: 50px 0;">
+                    <p style="font-family: monospace; font-size: 1.8rem; font-weight: 900;">IBAN: IT 89 B 07076 56845 000000 025903</p>
+                    <p style="margin-top: 15px;">Intestato a: Associazione L’Approdo-APS</p>
+                </div>
+                <p style="font-size: 1.5rem;">Donando il tuo <strong>5x1000</strong>. Inserisci il codice fiscale:</p>
+                <p style="font-size: 2.8rem; font-weight: 900; color: var(--green); margin-top: 20px;">91002180197</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-manifesto" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal-btn" onclick="closeModal('modal-manifesto')">&times;</button>
+            <div style="padding: 70px;">
+                <h2 class="font-title" style="font-size: 3rem;">CHI SIAMO</h2>
+                <p style="font-size: 1.5rem; margin-top: 40px; line-height: 1.8;">L'Approdo è una ONLUS attiva da oltre 25 anni nel campo della riabilitazione e prevenzione da alcool, droghe e gioco d'azzardo. Crediamo che il gruppo sia la medicina più potente per tornare a vivere.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funzioni Modali
+        function openModal(id) { 
+            document.getElementById(id).classList.add('active'); 
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeModal(id) { 
+            document.getElementById(id).classList.remove('active'); 
+            document.body.style.overflow = 'auto'; 
+        }
+        // Chiudi al clic fuori
+        window.onclick = function(e) { 
+            if(e.target.classList.contains('modal-overlay')) { 
+                e.target.classList.remove('active'); 
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+    </script>
+</body>
+</html>
