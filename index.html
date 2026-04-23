@@ -24,9 +24,10 @@
         
         h1, h2, h3, h4, .font-title { font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; font-weight: 700; letter-spacing: -2px; }
 
-        /* --- LOGO PROPORZIONATO --- */
-        .logo-mid-page { width: 95%; max-width: 600px; height: auto; object-fit: contain; margin: 40px auto; display: block; filter: drop-shadow(10px 10px 0px var(--black)); }
+        /* --- LOGO STYLING --- */
         .logo-nav { height: 100px; width: auto; object-fit: contain; }
+        .logo-big-top { width: 90%; max-width: 700px; height: auto; object-fit: contain; margin: 40px auto; display: block; filter: drop-shadow(10px 10px 0px var(--black)); }
+        .logo-white-footer { width: 80%; max-width: 500px; height: auto; object-fit: contain; margin: 0 auto 50px auto; display: block; filter: brightness(0) invert(1); }
 
         /* --- NAVIGATION --- */
         nav {
@@ -39,7 +40,7 @@
 
         /* --- UI ELEMENTS --- */
         .highlight { background: var(--mint); padding: 5px 15px; border-radius: 6px; box-shadow: 4px 4px 0 var(--black); display: inline-block; transform: rotate(-1.5deg); }
-        .retro-card { background: white; border: var(--border); box-shadow: var(--shadow); padding: 40px; border-radius: 20px; margin-bottom: 30px; }
+        .retro-card { background: white; border: var(--border); box-shadow: var(--shadow); padding: 40px; border-radius: 20px; margin-bottom: 30px; transition: 0.3s; }
         
         .btn-black, .btn-white, .btn-purple {
             padding: 18px 36px; font-weight: 700; text-decoration: none; border: var(--border);
@@ -66,14 +67,14 @@
         .events-split-container { display: flex; gap: 50px; margin-top: 50px; }
         .events-col { flex: 1; }
         .events-col-left { border-right: 5px dashed var(--black); padding-right: 40px; }
-        .scroll-past-events { max-height: 1000px; overflow-y: auto; padding-right: 20px; }
+        .scroll-past-events { max-height: 1100px; overflow-y: auto; padding-right: 20px; }
         .event-card { background: white; border: var(--border); box-shadow: 8px 8px 0 rgba(0,0,0,0.1); border-radius: 20px; margin-bottom: 40px; overflow: hidden; position: relative; }
         .event-img { width: 100%; height: 280px; object-fit: cover; border-bottom: var(--border); }
         .badge-new { position: absolute; top: 20px; right: 20px; background: var(--mint); color: black; padding: 10px 25px; font-weight: 800; border: 3px solid black; transform: rotate(10deg); z-index: 5; box-shadow: 3px 3px 0 black; font-size: 1.1rem; }
 
         /* --- DIARIO DESIGN --- */
-        .diary-page { background: var(--paper); padding: 80px 10%; color: #333; position: relative; }
-        .diary-header { text-align: center; margin-bottom: 60px; border-bottom: 4px solid #000; padding-bottom: 30px; }
+        .diary-page { background: var(--paper); padding: 100px 10%; color: #333; position: relative; }
+        .diary-header { text-align: center; margin-bottom: 80px; border-bottom: 4px solid #000; padding-bottom: 40px; }
         .diary-date { font-family: 'Courier Prime', monospace; font-size: 1.4rem; color: var(--blue); font-weight: 700; }
         .diary-img-full { width: 100%; height: auto; max-height: 850px; object-fit: cover; border: 15px solid white; box-shadow: 0 30px 60px rgba(0,0,0,0.3); margin: 60px 0; border-radius: 4px; }
         .diary-content { max-width: 900px; margin: 0 auto; font-size: 1.6rem; line-height: 2.1; }
@@ -84,11 +85,11 @@
         /* --- MODALS --- */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 2000; display: none; overflow-y: auto; -webkit-overflow-scrolling: touch; }
         .modal-overlay.active { display: block; }
-        .modal-box { width: 95%; max-width: 1300px; margin: 40px auto; background: white; border: var(--border); border-radius: 45px; overflow: hidden; position: relative; box-shadow: 30px 30px 0px var(--black); animation: modalOpen 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
-        .close-modal-btn { position: sticky; top: 25px; right: 25px; float: right; z-index: 100; background: var(--black); color: white; width: 65px; height: 65px; border-radius: 50%; border: none; font-size: 2.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+        .modal-box { width: 95%; max-width: 1350px; margin: 40px auto; background: white; border: var(--border); border-radius: 45px; overflow: hidden; position: relative; box-shadow: 30px 30px 0px var(--black); animation: modalOpen 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+        .close-modal-btn { position: sticky; top: 25px; right: 25px; float: right; z-index: 100; background: var(--black); color: white; width: 70px; height: 70px; border-radius: 50%; border: none; font-size: 2.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
 
         /* --- INSTAGRAM GRID --- */
-        #contatti { background: var(--black); color: white; padding-bottom: 120px; }
+        #contatti { background: var(--black); color: white; padding-top: 80px; padding-bottom: 120px; }
         .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 50px auto; }
         .insta-post { aspect-ratio: 1/1; border: 2px solid #333; overflow: hidden; border-radius: 15px; }
         .insta-post img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
@@ -98,7 +99,7 @@
         @media (max-width: 900px) {
             nav { height: 110px; }
             .logo-nav { height: 80px; }
-            .logo-mid-page { max-width: 90%; margin: 30px auto; }
+            .logo-big-top { max-width: 85%; }
             .nav-links { display: none; }
             section { padding: 100px 6%; }
             .events-split-container { flex-direction: column; }
@@ -130,9 +131,12 @@
             <a href="#eventi-hub" class="btn-black">Prossimi Eventi</a>
             <button onclick="openModal('modal-manifesto')" class="btn-white">Chi Siamo</button>
         </div>
+        
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/3VQFxCeLBPA" allowfullscreen title="Video"></iframe>
         </div>
+
+        <img src="approdo_logo.png" class="logo-big-top" alt="Logo L'Approdo Grande">
     </section>
 
     <section id="eventi-hub">
@@ -155,7 +159,7 @@
                     </div>
                     <div class="event-card">
                         <img src="premiazioni_passato.jpg" class="event-img" alt="Premiazioni">
-                        <div style="padding: 30px;"><h4>Traguardi Astinenze</h4><p>Celebriamo i successi passati.</p></div>
+                        <div style="padding: 30px;"><h4>Traguardi Astinenze</h4><p>I successi passati dei nostri ragazzi.</p></div>
                     </div>
                 </div>
             </div>
@@ -163,7 +167,7 @@
             <div class="events-col">
                 <h3 class="font-title" style="color: var(--purple); margin-bottom: 40px; font-size: 2.2rem;">IL FUTURO <span class="highlight">CHE CI ASPETTA</span></h3>
                 <div class="event-card" style="border-color: var(--purple);">
-                    <div class="badge-new">NEW</div>
+                    <div class="badge-new">PROSSIMO EVENTO</div>
                     <img src="tornareumani.jpg" class="event-img" style="height: 500px;" alt="Tornare Umani" onerror="this.src='https://via.placeholder.com/600x800/8B5CF6/fff?text=TORNARE+UMANI'">
                     <div style="padding: 40px;">
                         <h3 style="color:var(--purple); font-size: 2.8rem; margin-bottom: 15px; line-height: 0.95;">Premiazioni astinenze: tornare umani</h3>
@@ -173,11 +177,6 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <section style="background: var(--paper); text-align: center; border-bottom: var(--border);">
-        <img src="approdo_logo.png" class="logo-mid-page" alt="Logo Gigante">
-        <h2 style="font-size: 3.5rem; margin-top: 30px;">Rinascere è una scelta.</h2>
     </section>
 
     <section id="gruppo">
@@ -190,7 +189,6 @@
                         <li><i class="fas fa-check-circle" style="color:var(--blue); margin-right: 20px;"></i> Durata: 90 Minuti</li>
                         <li><i class="fas fa-check-circle" style="color:var(--blue); margin-right: 20px;"></i> Frequenza: Settimanale</li>
                         <li><i class="fas fa-check-circle" style="color:var(--blue); margin-right: 20px;"></i> Astinenza: Giro iniziale</li>
-                        <li><i class="fas fa-hand-paper" style="color:var(--blue); margin-right: 20px;"></i> Parola: Alzata di mano</li>
                     </ul>
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
@@ -219,10 +217,13 @@
     </section>
 
     <section id="contatti">
+        <img src="approdo_logo.png" class="logo-white-footer" alt="Logo L'Approdo Bianco">
+
         <div style="text-align: center; margin-bottom: 90px;">
             <h2 style="font-size: 5.5rem; color: white; line-height: 0.85;">IL NOSTRO FEED</h2>
-            <p style="font-size: 1.8rem; color: #888; margin-top: 25px;">Connettiti con la nostra missione</p>
+            <p style="font-size: 1.8rem; color: #888; margin-top: 25px;">Rimani connesso con la nostra missione</p>
         </div>
+
         <div class="insta-grid">
             <div class="insta-post"><img src="azzurri_sempre.jpg" alt="1"></div>
             <div class="insta-post"><img src="balilla_passato.jpg" alt="2"></div>
@@ -231,6 +232,7 @@
             <div class="insta-post"><img src="marcia_passato.jpg" alt="5"></div>
             <div class="insta-post"><img src="premiazioni_passato.jpg" alt="6"></div>
         </div>
+
         <div style="display: flex; justify-content: center; gap: 35px; flex-wrap: wrap; margin-top: 90px;">
             <a href="https://instagram.com/associazioneapprodo" target="_blank" class="btn-white" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; border: none; font-size: 1.4rem;">
                 <i class="fab fa-instagram"></i> @associazioneapprodo
@@ -250,13 +252,10 @@
                     <h1 style="font-size: 4rem; line-height: 0.9;">L'Incubo e la Rinascita</h1>
                 </div>
                 <div class="diary-content">
-                    <p>Nel 2024 ho partecipato alla <strong>Homeless World Cup</strong> a Seoul. È stato un viaggio lungo, dentro noi stessi. Abbiamo perso le prime 5 partite consecutive. Eravamo demoralizzati, sembrava che tutto svanisse.</p>
+                    <p>Nel 2024 ho partecipato alla Homeless World Cup a Seoul. Abbiamo perso le prime 5 partite consecutive. Eravamo demoralizzati, sembrava che tutto svanisse.</p>
                     <img src="azzurri_sempre.jpg" class="diary-img-full" alt="Team Seoul">
                     <div class="diary-quote">"La vittoria non era nel punteggio, ma nell'esserci rialzati."</div>
-                    <div class="diary-row">
-                        <div class="text"><p>Alla sesta partita contro la <strong>Svezia</strong> abbiamo vinto ai rigori. Una gioia indescrivibile. Seoul è stata la nostra vera rinascita collettiva.</p></div>
-                        <img src="seoul_azione.jpg" alt="Azione Seoul">
-                    </div>
+                    <p>Alla sesta partita contro la Svezia abbiamo vinto ai rigori. Seoul è stata la nostra vera rinascita collettiva.</p>
                 </div>
             </div>
         </div>
@@ -274,18 +273,7 @@
                     <img src="teamoslo.jpg" class="diary-img-full" alt="Team Oslo" onerror="this.src='https://via.placeholder.com/1200x700/1C4ED8/FFF?text=TEAM+OSLO'">
                     <div class="diary-row">
                         <img src="achille_oslo.jpg" alt="Achille">
-                        <div class="text">
-                            <h3 class="font-title" style="color:var(--blue); font-size: 2.5rem;">ACHILLE: IL CAPITANO</h3>
-                            <p>Guidare la squadra a Oslo ha significato prendersi cura della fragilità dei compagni, trasformando la paura nella forza di riprovarci.</p>
-                        </div>
-                    </div>
-                    <div class="diary-quote">"Un viaggio TRASFORMATIVO."</div>
-                    <div class="diary-row" style="flex-direction: row-reverse;">
-                        <img src="giuseppe_oslo.jpg" alt="Giuseppe">
-                        <div class="text">
-                            <h3 class="font-title" style="color:var(--blue); font-size: 2.5rem;">GIUSEPPE: LE EMOZIONI</h3>
-                            <p><i>"Mi ha dato modo di cambiare prospettiva su quanto possano essere forti ed indimenticabili le emozioni quando vengono condivise."</i></p>
-                        </div>
+                        <div class="text"><h3 class="font-title" style="color:var(--blue); font-size: 2.5rem;">ACHILLE: IL CAPITANO</h3><p>Guidare la squadra a Oslo ha significato prendersi cura della fragilità dei compagni.</p></div>
                     </div>
                 </div>
             </div>
@@ -302,17 +290,7 @@
             <div style="padding: 90px; text-align: center;">
                 <h2 style="color: var(--purple); font-size: 4.5rem; line-height: 0.9;">PREMIAZIONI ASTINENZE</h2>
                 <img src="tornareumani.jpg" style="width: 100%; max-width: 1000px; border: var(--border); border-radius: 40px; margin: 60px 0;" alt="Tornare Umani" onerror="this.src='https://via.placeholder.com/1000x700/8B5CF6/FFF?text=PREMIAZIONI+ASTINENZE'">
-                <p style="font-size: 2rem; font-weight: 500; max-width: 900px; margin: 0 auto;">Un evento unico per celebrare la scelta di tornare umani lontano dalle sostanze.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-manifesto" class="modal-overlay">
-        <div class="modal-box">
-            <button class="close-modal-btn" onclick="closeModal('modal-manifesto')">&times;</button>
-            <div style="padding: 80px;">
-                <h2 class="font-title" style="font-size: 3.5rem;">CHI SIAMO</h2>
-                <p style="font-size: 1.8rem; margin-top: 50px; line-height: 1.8;">L'Approdo combatte contro le dipendenze da oltre 25 anni. Mettiamo le persone al centro.</p>
+                <p style="font-size: 2rem; font-weight: 500; max-width: 900px; margin: 0 auto;">Un evento per celebrare chi è tornato umano lontano dalle sostanze.</p>
             </div>
         </div>
     </div>
